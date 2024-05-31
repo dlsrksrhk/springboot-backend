@@ -1,0 +1,10 @@
+spring:
+  jpa:
+    show-sql: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+  sql:
+    init:
+      mode: never
