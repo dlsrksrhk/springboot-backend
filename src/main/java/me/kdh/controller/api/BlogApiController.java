@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import me.kdh.domain.Article;
 import me.kdh.dto.AddArticleRequest;
 import me.kdh.dto.ArticleResponse;
+import me.kdh.dto.UpdateArticleRequest;
 import me.kdh.service.BlogService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,14 @@ public class BlogApiController {
         Article savedArticle = blogService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(savedArticle);
+    }
+
+    @PutMapping("/api/articles/{id}")
+    public ResponseEntity<Article> updateArticle(@PathVariable long id,
+                                                 @RequestBody UpdateArticleRequest request) {
+        Article updatedArticle = blogService.update(id, request);
+        return ResponseEntity.ok()
+                .body(updatedArticle);
     }
 
     @GetMapping("/api/articles")
