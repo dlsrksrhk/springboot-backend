@@ -12,3 +12,7 @@ spring:
   h2:
     console:
       enabled: true
+
+jwt:
+  issuer: sweet.dh@gmail.com
+  secret_key: sweet.blog
